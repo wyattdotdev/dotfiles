@@ -37,6 +37,12 @@ alias -g lg="lazygit"
 
 alias sa='source ~/.zshrc;echo "ZSH aliases sourced."'
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/wyatthaston/.docker/completions $fpath)
+autoload -Uz compinit
+(( ${+_comps[docker]} )) || compinit
+# End of Docker CLI completions
+
 function mkcd() 
 {
     # Create a directory and enter it
