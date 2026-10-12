@@ -5,6 +5,7 @@ transient/
 
 # Compiled Lisp
 *.elc
+eln-cache/
 
 # Package directory (installed, not source)
 elpa/
