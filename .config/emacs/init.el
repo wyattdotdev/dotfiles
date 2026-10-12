@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Package system setup
 (require 'package)
 (setq package-check-signature nil)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; JSON — disable prettification/folding of strings
 (add-hook 'json-ts-mode-hook (lambda () (setq-local prettify-symbols-mode nil)))
 

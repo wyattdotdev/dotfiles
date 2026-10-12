@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (with-eval-after-load 'evil
   ;; Leader key
   (evil-set-leader 'normal (kbd "SPC"))
