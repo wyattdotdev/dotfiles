@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Line numbers
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
@@ -16,6 +18,7 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default evil-shift-width 4)
+(setq-default tab-always-indent nil)
 (setq c-ts-mode-indent-offset 4)
 (setq c++-ts-mode-indent-offset 4)
 (electric-indent-mode t)
@@ -42,15 +45,14 @@
 ;; Disable startup screen
 (setq inhibit-startup-message t)
 
-;; Open a dired buffer on the home directory instead of *scratch*
-(setq initial-buffer-choice (lambda () (dired "~/")))
-
 ;; Delete by moving to trash
 (setq-default delete-by-moving-to-trash t)
 
 ;; Remove UI chrome
 (menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;; tool-bar-mode / scroll-bar-mode are undefined in a TTY build, which aborts
+;; the rest of init when Emacs starts with -nw.
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (provide 'options)
