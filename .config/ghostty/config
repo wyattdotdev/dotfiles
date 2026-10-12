@@ -20,17 +20,17 @@ window-padding-color = extend
 #
 # Keybindings
 #
-keybind = ctrl+s>c=new_tab
-keybind = ctrl+s>x=close_surface
-keybind = ctrl+s>v=new_split:right
-keybind = ctrl+s>h=new_split:down
-keybind = ctrl+s>v=new_split:right
-keybind = ctrl+shift+h=goto_split:left
-keybind = ctrl+shift+j=goto_split:bottom
-keybind = ctrl+shift+k=goto_split:top
-keybind = ctrl+shift+l=goto_split:right
-keybind = ctrl+s>n=next_tab
-keybind = ctrl+s>p=previous_tab
+# keybind = ctrl+s>c=new_tab
+# keybind = ctrl+s>x=close_surface
+# keybind = ctrl+s>v=new_split:right
+# keybind = ctrl+s>h=new_split:down
+# keybind = ctrl+s>v=new_split:right
+# keybind = ctrl+shift+h=goto_split:left
+# keybind = ctrl+shift+j=goto_split:bottom
+# keybind = ctrl+shift+k=goto_split:top
+# keybind = ctrl+shift+l=goto_split:right
+# keybind = ctrl+s>n=next_tab
+# keybind = ctrl+s>p=previous_tab
 
 #
 # Font settings
