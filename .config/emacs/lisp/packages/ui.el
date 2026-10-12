@@ -44,7 +44,10 @@
     (setq dired-listing-switches "-alh"))
   (setq dired-kill-when-opening-new-dired-buffer t)
   (with-eval-after-load 'evil
-    (evil-define-key 'normal 'global (kbd "-") #'dired-jump)))
+    (evil-define-key 'normal 'global (kbd "-") #'dired-jump)
+    (evil-define-key 'normal dired-mode-map
+      (kbd "RET") #'dired-find-alternate-file
+      (kbd "-") #'dired-up-directory)))
 
 ;; Fuzzy finder (telescope equivalent)
 (use-package vertico
