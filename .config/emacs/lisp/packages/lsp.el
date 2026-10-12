@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Completion UI (nvim-cmp equivalent)
 (use-package corfu
   :custom
@@ -27,14 +29,19 @@
   (html-ts-mode        . eglot-ensure)
   (lua-ts-mode         . eglot-ensure)
   (c-ts-mode           . eglot-ensure)
+  (csharp-mode         . eglot-ensure)
   (c++-ts-mode         . eglot-ensure)
   (python-ts-mode      . eglot-ensure)
   (go-ts-mode          . eglot-ensure)
+  (csharp-ts-mode      . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
     '(rust-ts-mode . ("rust-analyzer"
                       :initializationOptions
                       (:diagnostics (:enable :json-false)))))
+
+  (add-to-list 'eglot-server-programs
+    '(csharp-ts-mode . ("csharp-ls")))
 
   (add-to-list 'eglot-server-programs
     '(arduino-mode . ("arduino-language-server"

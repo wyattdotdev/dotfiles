@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Magit — Git interface
 (use-package magit
   :defer t
@@ -29,12 +31,16 @@
 (use-package php-mode     :defer t)
 (use-package svelte-mode  :defer t)
 (use-package arduino-mode :defer t)
+(use-package csharp-mode  :defer t)
 (use-package markdown-mode
   :defer t
   :mode ("\\.md\\'" . markdown-mode))
 (use-package auctex
   :defer t
-  :mode ("\\.tex\\'" . latex-mode))
+  :mode ("\\.tex\\'" . latex-mode)
+  :config
+  (setq LaTeX-indent-level 4)
+  (setq TeX-brace-indent-level 4))
 
 ;; Treesitter — auto-install grammars (nvim-treesitter equivalent)
 (use-package treesit-auto
@@ -61,7 +67,9 @@
                 ("\\.cpp\\'" . c++-ts-mode)
                 ("\\.cc\\'"  . c++-ts-mode)
                 ("\\.cxx\\'" . c++-ts-mode)
-                ("\\.hpp\\'" . c++-ts-mode))
+                ("\\.hpp\\'" . c++-ts-mode)
+                ("\\.cs\\'"  . csharp-ts-mode)
+                ("\\.csx\\'" . csharp-ts-mode))
               auto-mode-alist))
 
 (provide 'code)
