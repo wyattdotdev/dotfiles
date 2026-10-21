@@ -7,6 +7,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-undo-system 'undo-redo)
+  (setq evil-insert-state-cursor 'box)
   :config
   (evil-mode 1))
 
