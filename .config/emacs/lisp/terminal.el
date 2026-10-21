@@ -13,6 +13,17 @@
   (other-window 1)
   (vterm))
 
+(defun split-term-vertical ()
+  (interactive)
+  (split-window-right)
+  (other-window 1)
+  (vterm))
+
+(defun new-term ()
+  "Open a fresh vterm buffer in the current window."
+  (interactive)
+  (vterm t))
+
 (defun fullscreen-term ()
   (interactive)
   (vterm)
@@ -85,6 +96,23 @@ Passing ESC straight through avoids Emacs holding the first press waiting for a 
         (evil-normal-state)
       (setq vterm--last-escape-time now))))
 
+;;; Mouse-wheel scrolling for TUIs ---------------------------------------------
+;;
+;; vterm never forwards mouse events, so apps that scroll their own view on
+;; the wheel (Claude Code, tmux with `mouse on', vim) can't be scrolled.  Send
+;; the SGR wheel sequences by hand.  vterm doesn't know whether the app asked
+;; for the mouse, so at a plain shell prompt these just type junk.
+
+(defun my/vterm-wheel-up ()
+  "Send a mouse wheel-up event to the terminal."
+  (interactive)
+  (process-send-string vterm--process "\e[<64;1;1M"))
+
+(defun my/vterm-wheel-down ()
+  "Send a mouse wheel-down event to the terminal."
+  (interactive)
+  (process-send-string vterm--process "\e[<65;1;1M"))
+
 ;;; Keybindings --------------------------------------------------------------
 
 ;; Global, in every state, so it works from the editor and from inside the
@@ -93,7 +121,10 @@ Passing ESC straight through avoids Emacs holding the first press waiting for a 
 (global-set-key (kbd "C-~") #'my/terminal-toggle)
 
 (with-eval-after-load 'evil
-  (evil-define-key 'normal 'global (kbd "<leader>wt") #'fullscreen-term)
+  (evil-define-key 'normal 'global (kbd "<leader>wtf") #'fullscreen-term)
+  (evil-define-key 'normal 'global (kbd "<leader>wtn") #'new-term)
+  (evil-define-key 'normal 'global (kbd "<leader>wth") #'split-term)
+  (evil-define-key 'normal 'global (kbd "<leader>wtv") #'split-term-vertical)
   (evil-define-key 'normal 'global (kbd "<leader>wT") #'split-term)
   (evil-define-key 'normal 'global (kbd "<leader>tt") #'my/terminal-toggle))
 
@@ -103,11 +134,37 @@ Passing ESC straight through avoids Emacs holding the first press waiting for a 
   (define-key vterm-mode-map (kbd "C-`") #'my/terminal-toggle)
   (define-key vterm-mode-map (kbd "C-~") #'my/terminal-toggle)
   (with-eval-after-load 'evil
-    (evil-define-key 'insert vterm-mode-map (kbd "<escape>") #'vterm-escape-or-normal-state)))
+    (evil-define-key 'insert vterm-mode-map (kbd "<escape>") #'vterm-escape-or-normal-state)
+    (evil-define-key 'insert vterm-mode-map (kbd "M-]") #'my/vterm-wheel-up)
+    (evil-define-key 'insert vterm-mode-map (kbd "M-'") #'my/vterm-wheel-down)))
 
-;; No line numbers in terminal
+;;; Scrolling ------------------------------------------------------------------
+;;
+;; vterm snaps the window back to the cursor on every redraw, so scrolling
+;; while a TUI is updating gets undone immediately.  Freeze the buffer with
+;; `vterm-copy-mode' whenever we're in normal state, and thaw it on insert.
+
+(defun my/vterm--enter-copy-mode ()
+  (when (and (derived-mode-p 'vterm-mode) (not vterm-copy-mode))
+    (vterm-copy-mode 1)))
+
+(defun my/vterm--exit-copy-mode ()
+  (when (and (derived-mode-p 'vterm-mode) vterm-copy-mode)
+    (vterm-copy-mode -1)))
+
+(with-eval-after-load 'evil
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (add-hook 'evil-normal-state-entry-hook #'my/vterm--enter-copy-mode nil t)
+              (add-hook 'evil-insert-state-entry-hook #'my/vterm--exit-copy-mode nil t))))
+
+;; No line numbers in terminal.  Claude Code blinks U+23FA while running
+;; tools; RobotoMono lacks it, so Emacs falls back to a taller emoji font and
+;; the rows below jump on every blink.  Draw it as a bullet the font has.
 (add-hook 'vterm-mode-hook (lambda ()
   (display-line-numbers-mode -1)
-  (setq-local scroll-margin 0)))
+  (setq-local scroll-margin 0)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table #x23FA (vector ?•))))
 
 (provide 'terminal)
