@@ -20,6 +20,7 @@
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :config
+  (add-to-list 'exec-path-from-shell-variables "DOTNET_ROOT")
   (exec-path-from-shell-initialize))
 
 ;; Add lisp directories to load path
