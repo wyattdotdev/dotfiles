@@ -42,7 +42,10 @@
                       (:diagnostics (:enable :json-false)))))
 
   (add-to-list 'eglot-server-programs
-    '(csharp-ts-mode . ("csharp-ls")))
+    '(((csharp-mode    :language-id "csharp")
+       (csharp-ts-mode :language-id "csharp")
+       (web-mode       :language-id "razor"))
+      . ("roslyn-language-server" "--stdio" "--autoLoadProjects")))
 
   (add-to-list 'eglot-server-programs
     '(arduino-mode . ("arduino-language-server"

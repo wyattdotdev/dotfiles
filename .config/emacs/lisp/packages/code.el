@@ -32,6 +32,14 @@
 (use-package svelte-mode  :defer t)
 (use-package arduino-mode :defer t)
 (use-package csharp-mode  :defer t)
+(use-package web-mode
+  :mode ("\\.razor\\'" "\\.cshtml\\'")
+  ;; Razor files go through Roslyn (see lsp.el); other web-mode files don't
+  :hook (web-mode . (lambda ()
+                      (when (string-match-p "\\.\\(razor\\|cshtml\\)\\'" (or buffer-file-name ""))
+                        (eglot-ensure))))
+  :config
+  (setq web-mode-engines-alist '(("razor" . "\\.\\(razor\\|cshtml\\)\\'"))))
 (use-package markdown-mode
   :defer t
   :mode ("\\.md\\'" . markdown-mode))
