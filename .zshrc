@@ -2,7 +2,7 @@
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin"
 export PATH="$PATH:$HOME/.dotnet/tools" # dotnet
 export PATH="/opt/homebrew/sbin:$PATH" # Homebrew
-export DOTNET_ROOT="$PATH:/opt/homebrew/opt/dotnet/libexec" # dotnet
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec" # dotnet
 export PATH="$PATH:$HOME/go/bin" # Go Binaries
 export PATH="$PATH:$HOME/bin" # Local Binaries
 export PATH="$PATH:$HOME/.composer/vendor/bin" # PHP Composer
