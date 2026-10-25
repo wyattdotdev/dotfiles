@@ -50,6 +50,8 @@
 
 ;; Remove UI chrome
 (menu-bar-mode -1)
+(setq ring-bell-function 'ignore)
+
 ;; tool-bar-mode / scroll-bar-mode are undefined in a TTY build, which aborts
 ;; the rest of init when Emacs starts with -nw.
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
