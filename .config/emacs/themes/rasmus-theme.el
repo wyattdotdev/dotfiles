@@ -149,8 +149,8 @@
    `(web-mode-json-key-face               ((t (:foreground ,fg))))
    `(web-mode-json-context-face           ((t (:foreground ,fg))))
    `(web-mode-error-face                  ((t (:foreground ,red :underline t))))
-   `(web-mode-block-face                  ((t (:background ,gray01))))
-   `(web-mode-inlay-face                  ((t (:background ,gray01))))
+   `(web-mode-block-face                  ((t nil)))
+   `(web-mode-inlay-face                  ((t nil)))
    `(web-mode-current-element-highlight-face ((t (:background ,gray03))))
    `(web-mode-current-column-highlight-face  ((t (:background ,gray02))))
 

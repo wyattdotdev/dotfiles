@@ -15,6 +15,7 @@
   :init
   (global-corfu-mode))
 
+
 ;; LSP via eglot (built-in since Emacs 29)
 (use-package eglot
   :ensure nil
@@ -36,6 +37,7 @@
   (go-ts-mode          . eglot-ensure)
   (csharp-ts-mode      . eglot-ensure)
   :config
+  (setq eglot-autoshutdown t) ;; shutdown eglot servers once last buffer is closed
   (add-to-list 'eglot-server-programs
     '(rust-ts-mode . ("rust-analyzer"
                       :initializationOptions
@@ -101,5 +103,16 @@
   (setf (alist-get 'js-ts-mode apheleia-mode-alist) nil)
   (setf (alist-get 'lua-ts-mode apheleia-mode-alist) '(stylua))
   (setf (alist-get 'go-ts-mode apheleia-mode-alist) '(goimports gofmt)))
+
+(use-package tuareg
+  :ensure t
+  :mode (("\\.ocamlinit\\'" . tuareg-mode)))
+
+(use-package ocaml-eglot
+  :ensure t
+  :after tuareg
+  :hook
+  (tuareg-mode . ocaml-eglot)
+  (ocaml-eglot . eglot-ensure))
 
 (provide 'lsp)

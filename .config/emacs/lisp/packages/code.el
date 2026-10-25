@@ -20,8 +20,11 @@
   (setq compilation-scroll-output t)
   (setq compilation-ask-about-save nil)
   (with-eval-after-load 'evil
-    (evil-define-key 'normal compilation-mode-map (kbd "[") #'previous-error)
-    (evil-define-key 'normal compilation-mode-map (kbd "]") #'next-error)
+    ;; Buffer-local so they beat evil-collection-unimpaired's global [e / ]e
+    (add-hook 'compilation-mode-hook
+              (lambda ()
+                (evil-local-set-key 'normal (kbd "[e") #'previous-error)
+                (evil-local-set-key 'normal (kbd "]e") #'next-error)))
     (evil-define-key 'normal 'global (kbd "<leader>cc") #'compile)))
 
 ;; Auto pairs (mini.pairs equivalent)
