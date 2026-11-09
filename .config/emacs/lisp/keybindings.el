@@ -57,4 +57,12 @@
   (evil-define-minor-mode-key 'normal 'outline-minor-mode (kbd "C-j") #'windmove-down)
   (evil-define-minor-mode-key 'normal 'outline-minor-mode (kbd "C-k") #'windmove-up))
 
+;; q in dired kills the buffer instead of burying it (evil-collection binds quit-window).
+;; Rebind in its setup hook so this runs after evil-collection-dired-setup.
+(add-hook 'evil-collection-setup-hook
+          (lambda (mode _keymaps)
+            (when (eq mode 'dired)
+              (evil-define-key 'normal dired-mode-map (kbd "q")
+                (lambda () (interactive) (quit-window t))))))
+
 (provide 'keybindings)

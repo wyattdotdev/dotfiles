@@ -7,11 +7,17 @@
   (with-eval-after-load 'evil
     (evil-define-key 'normal 'global (kbd "<leader>gg") #'magit-status)
     (evil-define-key 'normal 'global (kbd "<leader>gb") #'magit-blame-addition))
-  :config
-  (evil-define-key 'normal magit-mode-map (kbd "C-h") #'windmove-left)
-  (evil-define-key 'normal magit-mode-map (kbd "C-j") #'windmove-down)
-  (evil-define-key 'normal magit-mode-map (kbd "C-k") #'windmove-up)
-  (evil-define-key 'normal magit-mode-map (kbd "C-l") #'windmove-right))
+  ;; evil-collection-magit binds C-j/C-k to section navigation (use gj/gk instead).
+  ;; Rebind in its setup hook so windmove wins regardless of load order.
+  (add-hook 'evil-collection-setup-hook
+            (lambda (mode _keymaps)
+              (when (eq mode 'magit)
+                (evil-define-key 'normal magit-mode-map (kbd "C-h") #'windmove-left)
+                (evil-define-key 'normal magit-mode-map (kbd "C-j") #'windmove-down)
+                (evil-define-key 'normal magit-mode-map (kbd "C-k") #'windmove-up)
+                (evil-define-key 'normal magit-mode-map (kbd "C-l") #'windmove-right)
+                (evil-define-key 'normal magit-blame-read-only-mode-map (kbd "C-j") #'windmove-down)
+                (evil-define-key 'normal magit-blame-read-only-mode-map (kbd "C-k") #'windmove-up)))))
 
 ;; Compile mode (built-in, mirrors compile-mode.nvim)
 (use-package compile
