@@ -115,7 +115,17 @@ buffers you've actually opened."
   :config
   (global-diff-hl-mode)
   (diff-hl-margin-mode)
+  ;; Refresh gutter signs after staging/committing in magit
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
+  (defun my/diff-hl-refresh-all ()
+    "Recompute diff-hl signs in every buffer that has them."
+    (interactive)
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (bound-and-true-p diff-hl-mode)
+          (diff-hl-update)))))
   (with-eval-after-load 'evil
+    (evil-define-key 'normal 'global (kbd "<leader>grs") #'my/diff-hl-refresh-all)
     (evil-define-key 'normal 'global (kbd "]h") #'diff-hl-next-hunk)
     (evil-define-key 'normal 'global (kbd "[h") #'diff-hl-previous-hunk)
     (evil-define-key 'normal 'global (kbd "<leader>ghs") #'diff-hl-stage-current-hunk)
