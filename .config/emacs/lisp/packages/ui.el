@@ -125,7 +125,7 @@ buffers you've actually opened."
         (when (bound-and-true-p diff-hl-mode)
           (diff-hl-update)))))
   (with-eval-after-load 'evil
-    (evil-define-key 'normal 'global (kbd "<leader>ghr") #'my/diff-hl-refresh-all)
+    (evil-define-key 'normal 'global (kbd "<leader>ghg") #'my/diff-hl-refresh-all)
     (evil-define-key 'normal 'global (kbd "]h") #'diff-hl-next-hunk)
     (evil-define-key 'normal 'global (kbd "[h") #'diff-hl-previous-hunk)
     (evil-define-key 'normal 'global (kbd "<leader>ghs") #'diff-hl-stage-current-hunk)
