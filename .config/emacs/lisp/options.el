@@ -45,6 +45,9 @@
 ;; Disable startup screen
 (setq inhibit-startup-message t)
 
+;; Log async native-compile warnings instead of popping up *Warnings*
+(setq native-comp-async-report-warnings-errors 'silent)
+
 ;; Delete by moving to trash
 (setq-default delete-by-moving-to-trash t)
 
