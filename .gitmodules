@@ -1,3 +1,15 @@
 [submodule "borg"]
 	path = .config/emacs/lib/borg
 	url = https://github.com/wyattdotdev/borg
+[submodule "cond-let"]
+	path = .config/emacs/lib/cond-let
+	url = https://github.com/wyattdotdev/cond-let
+[submodule "llama"]
+	path = .config/emacs/lib/llama
+	url = https://github.com/wyattdotdev/llama
+[submodule "magit"]
+	path = .config/emacs/lib/magit
+	url = https://github.com/wyattdotdev/magit
+[submodule "with-editor"]
+	path = .config/emacs/lib/with-editor
+	url = https://github.com/wyattdotdev/with-editor
