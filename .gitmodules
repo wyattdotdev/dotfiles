@@ -1,0 +1,3 @@
+[submodule "borg"]
+	path = .config/emacs/lib/borg
+	url = https://github.com/wyattdotdev/borg
