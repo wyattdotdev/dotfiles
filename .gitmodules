@@ -124,10 +124,6 @@
 	path = .config/emacs/lib/transient
 	url = https://github.com/wyattdotdev/transient
     ignore = untracked
-[submodule "treesit-auto"]
-	path = .config/emacs/lib/treesit-auto
-	url = https://github.com/wyattdotdev/treesit-auto.git
-    ignore = untracked
 [submodule "tuareg"]
 	path = .config/emacs/lib/tuareg
 	url = https://github.com/wyattdotdev/tuareg
