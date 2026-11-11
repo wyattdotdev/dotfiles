@@ -38,8 +38,10 @@
 
 ;; Language modes
 (use-package php-mode     :defer t)
-(use-package svelte-mode  :defer t)
-(use-package arduino-mode :defer t)
+; Svelte
+;; (use-package svelte-mode  :defer t)
+; Arduino
+;; (use-package arduino-mode :defer t)
 (use-package csharp-mode  :defer t)
 (use-package web-mode
   :mode ("\\.razor\\'" "\\.cshtml\\'")
