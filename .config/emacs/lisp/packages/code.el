@@ -19,6 +19,11 @@
                 (evil-define-key 'normal magit-blame-read-only-mode-map (kbd "C-j") #'windmove-down)
                 (evil-define-key 'normal magit-blame-read-only-mode-map (kbd "C-k") #'windmove-up)))))
 
+;; Don't show untracked submodule files
+(with-eval-after-load 'magit-status
+  (put 'magit-status-mode 'magit-diff-default-arguments
+       '("--no-ext-diff" "--ignore-submodules=untracked")))
+
 ;; Compile mode (built-in, mirrors compile-mode.nvim)
 (use-package compile
   :ensure nil
