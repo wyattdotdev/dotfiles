@@ -3,18 +3,17 @@
 ;; Package system setup
 (require 'package)
 (setq package-check-signature nil)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-load-list '((auctex t)))
 (package-initialize)
 
 (unless package-archive-contents
   (package-refresh-contents))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(unless (package-installed-p 'auctex)
+    (package-refresh-contents)
+    (package-install 'auctex))
 
 (require 'use-package)
-(setq use-package-always-ensure t)
 
 ;; Inherit shell PATH on macOS GUI
 (use-package exec-path-from-shell
