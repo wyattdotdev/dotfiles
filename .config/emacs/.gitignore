@@ -1,7 +1,7 @@
 # Auto-generated state files
-tramp
+/tramp
 auto-save-list/
-transient/
+/transient/
 
 # Compiled Lisp
 *.elc
@@ -20,3 +20,6 @@ tree-sitter/
 
 # Org mode
 .org-id-locations
+
+# project.el known-projects list (contains local paths)
+/projects.eld
