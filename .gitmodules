@@ -141,9 +141,9 @@
 [submodule "vterm"]
 	path = .config/emacs/lib/vterm
 	url = https://github.com/wyattdotdev/emacs-libvterm
+    build-step = cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build
     build-step = borg-update-autoloads
     build-step = borg-compile
-    build-step = cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build
     ignore = untracked
 [submodule "web-mode"]
 	path = .config/emacs/lib/web-mode
