@@ -66,12 +66,6 @@
   (setq LaTeX-indent-level 4)
   (setq TeX-brace-indent-level 4))
 
-;; Treesitter — auto-install grammars (nvim-treesitter equivalent)
-(use-package treesit-auto
-  :config
-  (setq treesit-auto-install t)
-  (global-treesit-auto-mode))
-
 ;; Map file extensions to ts modes
 (setq auto-mode-alist
       (append '(("\\.js\\'"   . js-ts-mode)

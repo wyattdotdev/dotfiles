@@ -38,6 +38,7 @@
   (csharp-ts-mode      . eglot-ensure)
   :config
   (setq eglot-autoshutdown t) ;; shutdown eglot servers once last buffer is closed
+  (setq eglot-sync-connect nil) ;; connect in the background instead of blocking file open
   (add-to-list 'eglot-server-programs
     '(rust-ts-mode . ("rust-analyzer"
                       :initializationOptions
