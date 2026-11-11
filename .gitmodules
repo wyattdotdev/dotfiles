@@ -1,15 +1,111 @@
+[submodule "apheleia"]
+	path = .config/emacs/lib/apheleia
+	url = https://github.com/wyattdotdev/apheleia
 [submodule "borg"]
 	path = .config/emacs/lib/borg
 	url = https://github.com/wyattdotdev/borg
+[submodule "centaur-tabs"]
+	path = .config/emacs/lib/centaur-tabs
+	url = https://github.com/wyattdotdev/centaur-tabs
+[submodule "compat"]
+	path = .config/emacs/lib/compat
+	url = https://github.com/wyattdotdev/compat
 [submodule "cond-let"]
 	path = .config/emacs/lib/cond-let
 	url = https://github.com/wyattdotdev/cond-let
+[submodule "consult"]
+	path = .config/emacs/lib/consult
+	url = https://github.com/wyattdotdev/consult
+[submodule "corfu"]
+	path = .config/emacs/lib/corfu
+	url = https://github.com/wyattdotdev/corfu
+[submodule "dash"]
+	path = .config/emacs/lib/dash
+	url = https://github.com/wyattdotdev/dash.el
+[submodule "diff-hl"]
+	path = .config/emacs/lib/diff-hl
+	url = https://github.com/wyattdotdev/diff-hl
+[submodule "doom-modeline"]
+	path = .config/emacs/lib/doom-modeline
+	url = https://github.com/wyattdotdev/doom-modeline
+[submodule "eldoc-box"]
+	path = .config/emacs/lib/eldoc-box
+	url = https://github.com/wyattdotdev/eldoc-box
+[submodule "evil"]
+	path = .config/emacs/lib/evil
+	url = https://github.com/wyattdotdev/evil
+[submodule "evil-collection"]
+	path = .config/emacs/lib/evil-collection
+	url = https://github.com/wyattdotdev/evil-collection
+[submodule "evil-org"]
+	path = .config/emacs/lib/evil-org
+	url = https://github.com/wyattdotdev/evil-org-mode.git
+[submodule "evil-surround"]
+	path = .config/emacs/lib/evil-surround
+	url = https://github.com/wyattdotdev/evil-surround
+[submodule "exec-path-from-shell"]
+	path = .config/emacs/lib/exec-path-from-shell
+	url = https://github.com/wyattdotdev/exec-path-from-shell
+[submodule "f"]
+	path = .config/emacs/lib/f
+	url = https://github.com/wyattdotdev/f.el
+[submodule "goto-chg"]
+	path = .config/emacs/lib/goto-chg
+	url = https://github.com/wyattdotdev/goto-chg
 [submodule "llama"]
 	path = .config/emacs/lib/llama
 	url = https://github.com/wyattdotdev/llama
 [submodule "magit"]
 	path = .config/emacs/lib/magit
 	url = https://github.com/wyattdotdev/magit
+[submodule "markdown-mode"]
+	path = .config/emacs/lib/markdown-mode
+	url = https://github.com/wyattdotdev/markdown-mode
+[submodule "nerd-icons"]
+	path = .config/emacs/lib/nerd-icons
+	url = https://github.com/wyattdotdev/nerd-icons.el
+[submodule "ocaml-eglot"]
+	path = .config/emacs/lib/ocaml-eglot
+	url = https://github.com/wyattdotdev/ocaml-eglot
+[submodule "orderless"]
+	path = .config/emacs/lib/orderless
+	url = https://github.com/wyattdotdev/orderless
+[submodule "php-mode"]
+	path = .config/emacs/lib/php-mode
+	url = https://github.com/wyattdotdev/php-mode
+[submodule "powerline"]
+	path = .config/emacs/lib/powerline
+	url = https://github.com/wyattdotdev/powerline
+[submodule "s"]
+	path = .config/emacs/lib/s
+	url = https://github.com/wyattdotdev/s.el
+[submodule "shrink-path"]
+	path = .config/emacs/lib/shrink-path
+	url = https://github.com/wyattdotdev/shrink-path.el
+[submodule "spinner"]
+	path = .config/emacs/lib/spinner
+	url = https://github.com/wyattdotdev/spinner.el
+[submodule "svelte-mode"]
+	path = .config/emacs/lib/svelte-mode
+	url = https://github.com/wyattdotdev/svelte-mode
+[submodule "transient"]
+	path = .config/emacs/lib/transient
+	url = https://github.com/wyattdotdev/transient
+[submodule "treesit-auto"]
+	path = .config/emacs/lib/treesit-auto
+	url = https://github.com/wyattdotdev/treesit-auto.git
+[submodule "tuareg"]
+	path = .config/emacs/lib/tuareg
+	url = https://github.com/wyattdotdev/tuareg
+[submodule "vertico"]
+	path = .config/emacs/lib/vertico
+	url = https://github.com/wyattdotdev/vertico
+[submodule "vterm"]
+	path = .config/emacs/lib/vterm
+	url = https://github.com/wyattdotdev/emacs-libvterm
+[submodule "web-mode"]
+	path = .config/emacs/lib/web-mode
+	url = https://github.com/wyattdotdev/web-mode
 [submodule "with-editor"]
 	path = .config/emacs/lib/with-editor
 	url = https://github.com/wyattdotdev/with-editor
